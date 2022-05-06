@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
+import "./style.css";
 
 export default function App() {
   const [datas, setDatas] = useState([]);
   const [newUserData, setNewUserData] = useState({});
+  const [inputValue, setInputValue] = useState();
   const addNewUser = () => {
     setDatas([...datas, newUserData]);
+    setInputValue("");
+    setTimeout(() => {
+      setInputValue();
+    }, 10);
   };
 
   return (
@@ -24,6 +30,7 @@ export default function App() {
             key={index}
             type='text'
             placeholder={item}
+            value={inputValue}
             onChange={(e) =>
               setNewUserData({
                 ...newUserData,
@@ -36,7 +43,7 @@ export default function App() {
       <button onClick={addNewUser}>Add</button>
       {datas.map((item, index) => {
         return Object.keys(item).map((objectKey) => (
-          <div key={objectKey}>
+          <div key={objectKey} className='MainTableDiv'>
             <table>
               <thead>
                 <tr>
