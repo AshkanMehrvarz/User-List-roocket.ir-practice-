@@ -6,11 +6,6 @@ export default function App() {
   const addNewUser = () => {
     setDatas([...datas, newUserData]);
   };
-  useEffect(() => {
-    if (datas.length > 0) {
-      console.log(datas);
-    }
-  }, [datas]);
 
   return (
     <div>
@@ -39,6 +34,24 @@ export default function App() {
         );
       })}
       <button onClick={addNewUser}>Add</button>
+      {datas.map((item, index) => {
+        return Object.keys(item).map((objectKey) => (
+          <div key={objectKey}>
+            <table>
+              <thead>
+                <tr>
+                  <th>{objectKey}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{item[objectKey]}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        ));
+      })}
     </div>
   );
 }
