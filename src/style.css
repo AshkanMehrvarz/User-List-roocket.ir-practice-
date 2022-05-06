@@ -1,3 +1,28 @@
-MainTableDiv {
-  background-color: red;
+.MainInputDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.TableDiv {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  /* background-color: orange; */
+  border-radius: 5px;
+  margin: 20px;
+}
+.Table {
+  /* background-color: aqua; */
+  margin: 20px 10px;
+}
+.TableTitle {
+  margin: 0;
+  font-weight: bold;
+  font-size: 16;
+}
+.TableItem {
+  margin: 10px 0 0 0;
+  font-weight: normal;
+  font-size: 14;
 }
