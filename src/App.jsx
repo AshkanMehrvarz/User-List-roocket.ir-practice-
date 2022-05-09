@@ -6,7 +6,9 @@ export default function App() {
   const [newUserData, setNewUserData] = useState({});
   const [inputValue, setInputValue] = useState();
   const addNewUser = () => {
-    setDatas([...datas, newUserData]);
+    Object.keys(newUserData).length !== 0
+      ? setDatas([...datas, newUserData])
+      : null;
     setNewUserData({});
     setInputValue("");
     setTimeout(() => {
@@ -20,12 +22,12 @@ export default function App() {
         {[
           "FirstName",
           "LastName",
+          "Email",
+          "Address",
           "Age",
           "City",
           "Admin",
           "Role",
-          "Email",
-          "Address",
         ].map((item, index) => {
           return (
             <input
@@ -36,7 +38,9 @@ export default function App() {
               onChange={(e) =>
                 setNewUserData({
                   ...newUserData,
+                  id: datas.length,
                   [item]: e.target.value,
+                  Time: new Date().toLocaleString(),
                 })
               }
             />
@@ -47,12 +51,18 @@ export default function App() {
       {datas.map((item) => {
         return (
           <div className='TableDiv'>
-            {Object.keys(item).map((objectKey) => (
-              <div key={objectKey} className='Table'>
-                <p className='TableTitle'>{objectKey}</p>
-                <p className='TableItem'>{item[objectKey]}</p>
-              </div>
-            ))}
+            <div className='Datas'>
+              {Object.keys(item).map((objectKey) => (
+                <div key={objectKey} className='Table'>
+                  <p className='TableTitle'>{objectKey}</p>
+                  <p className='TableItem'>{item[objectKey]}</p>
+                </div>
+              ))}
+            </div>
+            <div className='Buttons'>
+              <button>Edit</button>
+              <button>Remove</button>
+            </div>
           </div>
         );
       })}
