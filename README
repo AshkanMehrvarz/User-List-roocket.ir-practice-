@@ -1,4 +1,1 @@
-app :
-table of users
-user has row of firstname lastname email phonenumber role address joineddate level
-add new user input
+
