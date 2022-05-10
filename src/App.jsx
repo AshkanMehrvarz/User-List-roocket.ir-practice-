@@ -9,7 +9,7 @@ function App() {
   const [phoneNumber, setPhoneNumber] = useState();
   const [age, setAge] = useState();
   const [city, setCity] = useState();
-  const [isAdmin, setIsAdmin] = useState();
+  const [isAdmin, setIsAdmin] = useState(false);
   const [datas, setDatas] = useState([]);
   const [ShowModal, setShowModal] = useState(false);
   const [selected, setSelected] = useState(0);
@@ -22,6 +22,7 @@ function App() {
     setPhoneNumber("");
     setAge("");
     setCity("");
+    setIsAdmin("");
 
     let date = new Date().toLocaleString();
     if (
@@ -126,18 +127,20 @@ function App() {
             type='radio'
             placeholder='Admin'
             id='adminYes'
+            checked={isAdmin === "Admin"}
+            value='Admin'
             name='Admin'
-            value={isAdmin}
-            onClick={() => setIsAdmin("Admin")}
+            onClick={(e) => setIsAdmin(e.target.value)}
           />
           <label htmlFor='adminNo'>No</label>
           <input
             type='radio'
             placeholder='Admin'
+            value='Normal User'
             id='adminNo'
+            checked={isAdmin === "Normal User"}
             name='Admin'
-            value={isAdmin}
-            onClick={() => setIsAdmin("Normal User")}
+            onClick={(e) => setIsAdmin(e.target.value)}
           />
         </div>
         <button onClick={() => addUserHandler()}>Add New User</button>
