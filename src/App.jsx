@@ -1,14 +1,11 @@
 import AddNewUser from "./components/AddNewUser";
+import "./style.css";
+
 export default function App() {
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}>
+      {/* Header Section */}
+      <div className='Header'>
         <h1>User List</h1>
         <AddNewUser />
       </div>

@@ -1,11 +1,15 @@
-body {
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.ModalForm {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.Form {
+.AddNewUserForm {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 20px 0;
 }
