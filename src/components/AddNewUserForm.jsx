@@ -8,7 +8,6 @@ export default function AddNewUserForm() {
   const newUserDatasHandler = (e) => {
     //   Cancel Reloading Page
     e.preventDefault();
-    console.log(e);
 
     // Setting Basc Varables
     const event = e.target;
@@ -21,18 +20,23 @@ export default function AddNewUserForm() {
     const emailValue = event.email.value;
     const phoneNumberValue = event.phoneNumber.value;
 
-    const isAdmin = event.role[0].checked;
+    const isAdmin = event.role.checked;
 
-    // Add New User Datas To Our State
-    setNewUser({
-      fullNameInput: fullNameValue,
-      emailInput: emailValue,
-      phoneNumberInput: phoneNumberValue,
-      Role: isAdmin ? "Admin" : "Normal User",
-    });
+    // Inputs Validation
+    if (
+      fullNameValue.length > 1 ||
+      emailValue.length > 1 ||
+      phoneNumberValue.length > 1
+    ) {
+      // Add New User Datas To Our State
+      setNewUser({
+        fullNameInput: fullNameValue,
+        emailInput: emailValue,
+        phoneNumberInput: phoneNumberValue,
+        Role: isAdmin ? "Admin" : "Normal User",
+      });
+    }
   };
-
-  console.log(newUser);
 
   return (
     <>
@@ -47,10 +51,7 @@ export default function AddNewUserForm() {
         <input type='text' name='phoneNumber' />
 
         <label htmlFor='admin'>Admin</label>
-        <input type='radio' name='role' id='admin' />
-
-        <label htmlFor='normalUser'>Normal User</label>
-        <input type='radio' name='role' id='normalUser' />
+        <input type='checkbox' name='role' id='admin' />
 
         <button>Add User</button>
       </form>

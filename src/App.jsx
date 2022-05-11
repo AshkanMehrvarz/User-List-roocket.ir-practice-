@@ -9,6 +9,8 @@ export default function App() {
         <h1>User List</h1>
         <AddNewUser />
       </div>
+
+      {/* Table Of Users */}
     </>
   );
 }
