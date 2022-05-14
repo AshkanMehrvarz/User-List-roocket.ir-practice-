@@ -1,21 +1,12 @@
-import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 
 function ModalFormAddUser({ show, resetValue }) {
-  const [ModalStatus, setModalStatus] = useState();
-
-  useEffect(() => {
-    if (show) {
-      setModalStatus(true);
-      resetValue(false);
-    }
-  });
 
   return (
-    <Modal isOpen={ModalStatus}>
+    <Modal isOpen={show}>
       <div>
         <h2>hoiii</h2>
-        <button onClick={() => setModalStatus(!ModalStatus)}>Close</button>
+        <button onClick={() => resetValue(false)}>Close</button>
       </div>
     </Modal>
   );
